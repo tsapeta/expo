@@ -115,6 +115,10 @@ public final class ImageModule: Module {
         view.enforceEarlyResizing = enforceEarlyResizing
       }
 
+      Prop("preferHighDynamicRange", false) { (view, preferHighDynamicRange: Bool) in
+        view.sdImageView.preferredImageDynamicRange = preferHighDynamicRange ? .constrainedHigh : .unspecified
+      }
+
       AsyncFunction("startAnimating") { (view: ImageView) in
         view.sdImageView.startAnimating()
       }
@@ -251,7 +255,7 @@ public final class ImageModule: Module {
 
   static func registerCoders() {
     SDImageCodersManager.shared.addCoder(WebPCoder.shared)
-    SDImageCodersManager.shared.addCoder(SDImageAVIFCoder.shared)
+//    SDImageCodersManager.shared.addCoder(SDImageAVIFCoder.shared)
     SDImageCodersManager.shared.addCoder(SDImageSVGCoder.shared)
     SDImageCodersManager.shared.addCoder(SDImageHEICCoder.shared)
   }

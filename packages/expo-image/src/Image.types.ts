@@ -372,6 +372,12 @@ export interface ImageProps extends Omit<ViewProps, 'style' | 'children'> {
    * @platform ios
    */
   enforceEarlyResizing?: boolean;
+
+  /**
+   * @default false
+   * @platform ios 17.0+
+   */
+  preferHighDynamicRange?: boolean;
 }
 
 /**
